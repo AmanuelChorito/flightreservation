@@ -2,10 +2,7 @@ package miu.cs544.project.flightreservation.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,4 +19,6 @@ public class Reservation {
     private ReservationStatus status;
     @ManyToMany
     private List<Flight> flightList= new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Passenger passenger;
 }
