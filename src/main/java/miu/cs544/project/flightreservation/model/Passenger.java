@@ -19,10 +19,6 @@ public class Passenger {
     @Past
     private LocalDate dateOfBirth;
     private String email;
-
-    private String emailAddress;
-
-
     @Embedded
     private Address residenceAddress;
 

@@ -1,27 +1,14 @@
 package miu.cs544.project.flightreservation.service;
 
+import miu.cs544.project.flightreservation.model.Airline;
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+public interface AirlineService {
+    List<Airline> allAirlines();
+    Airline saveAirline(Airline airline);
+    List<Airline> findByAiportCode(String airportcode);
+    Airline findById(int id);
+    Airline updateAirline(Airline newAirline,int id);
 
-import lombok.Data;
-import miu.cs544.project.flightreservation.model.Airline;
-import miu.cs544.project.flightreservation.repository.AirlineRepository;
-
-
-@Service
-@Data
-public class AirlineService {
-
-	@Autowired
-	private AirlineRepository repository;
-	
-	public List<Airline> allAirlines(){
-		return repository.findAll();
-	}
-	
-	public Airline saveAirline(Airline airline) {
-		return repository.save(airline);
-	}
 }

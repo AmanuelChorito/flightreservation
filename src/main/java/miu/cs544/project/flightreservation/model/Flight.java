@@ -11,11 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import java.time.LocalTime;
 
 
 @Entity
