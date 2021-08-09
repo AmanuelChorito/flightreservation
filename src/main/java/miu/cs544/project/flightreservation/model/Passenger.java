@@ -1,6 +1,7 @@
 package miu.cs544.project.flightreservation.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Past;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +19,23 @@ public class Passenger {
     @Past
     private LocalDate dateOfBirth;
     private String email;
+
     private String emailAddress;
+
 
     @Embedded
     private Address residenceAddress;
+
+	public Passenger(String firstName, String lastName, @Past LocalDate dateOfBirth, String email,
+			Address residenceAddress) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.email = email;
+		this.residenceAddress = residenceAddress;
+	}
+    
+    
+    
 }

@@ -2,7 +2,14 @@ package miu.cs544.project.flightreservation.model;
 
 import javax.persistence.Embeddable;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Embeddable
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address {
     //private int id;   // no need of id
 
@@ -11,5 +18,6 @@ public class Address {
     private String state;
     private String zip;
 
+    
 
 }
