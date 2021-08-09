@@ -18,12 +18,12 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping
 	public List<User> allCountry(){
 		return userService.allUsers();
 	}
-	
+
 	public User saveUser(User user) {
 		return userService.saveUser(user);
 	}

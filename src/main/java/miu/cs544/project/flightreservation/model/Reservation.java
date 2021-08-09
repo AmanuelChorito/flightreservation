@@ -2,6 +2,7 @@ package miu.cs544.project.flightreservation.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@ToString
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +21,14 @@ public class Reservation {
     private LocalDate reservedDate;
     private double totalPrice;
     private ReservationStatus status;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Flight> flightList= new ArrayList<>();
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne( cascade = CascadeType.ALL)
     private Passenger passenger;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Ticket> tickets;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Ticket> tickets=new
+			ArrayList<>();
+    @ManyToOne( cascade = CascadeType.ALL)
     private User user;
     
    // /reservations/ body of list of flightIds POST
