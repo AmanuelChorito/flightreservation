@@ -23,7 +23,6 @@ import miu.cs544.project.flightreservation.service.FlightServices;
 public class FlightController {
 
 	@Autowired
-
 	private FlightServices flightServiceImp;
 	
 

@@ -4,9 +4,9 @@ spring:
   application:
     name: spring-boot-server
   datasource:
-    url: jdbc:mysql://localhost:3306/flightreservation
+    url: jdbc:mysql://localhost:3306/TestDB3
     username: root
-    password: root
+    password: Aman@2021
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
