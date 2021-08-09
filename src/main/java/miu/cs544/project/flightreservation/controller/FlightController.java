@@ -18,12 +18,12 @@ public class FlightController {
 
 	@Autowired
 	private FlightService flightService;
-	
+
 	@GetMapping
 	public List<Flight> allCountry(){
 		return flightService.allFlights();
 	}
-	
+
 	public Flight saveFlight(Flight flight) {
 		return flightService.saveFlight(flight);
 	}

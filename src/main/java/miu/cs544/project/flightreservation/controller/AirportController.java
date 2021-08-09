@@ -18,12 +18,12 @@ public class AirportController {
 
 	@Autowired
 	private AirportService airportService;
-	
+
 	@GetMapping
 	public List<Airport> allCountry(){
 		return airportService.allAirports();
 	}
-	
+
 	public Airport saveAirport(Airport airport) {
 		return airportService.saveAirport(airport);
 	}
