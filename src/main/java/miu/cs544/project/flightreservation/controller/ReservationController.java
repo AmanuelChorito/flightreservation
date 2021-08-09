@@ -11,6 +11,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +30,7 @@ public class ReservationController {
 
 	@Autowired
 	private ReservationService reservationService;
-<<<<<<< HEAD
+
 	
 	@Autowired
 	private FlightService flightService;
@@ -44,16 +45,16 @@ public class ReservationController {
 	public Optional<Reservation> oneAirport(@PathVariable int id){
 		System.out.println("here in the oneAirport get");
 		return reservationService.oneReservation(id);
-=======
 
+	}
 	@GetMapping
 	public List<Reservation> allReservations(){
-		return reservationService.allReservation();
+		return reservationService.allReservations();
 	}
 
 	public Reservation saveReservation(Reservation reservation) {
 		return reservationService.saveReservation(reservation);
->>>>>>> 41d6944deaabbbe9dc2eae59ef1cbd88a4acb447
+
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
