@@ -20,8 +20,8 @@ public class Passenger {
     private LocalDate dateOfBirth;
     private String email;
 
-    // According to report passenger has two addresses so multiplicity should be
-    // one or many and we need to change in class diagram
+    private String emailAddress;
+
 
     @Embedded
     private Address residenceAddress;
