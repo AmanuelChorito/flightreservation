@@ -8,11 +8,7 @@ import javax.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -56,11 +52,12 @@ public class AirportController {
 		String city = body.get("city").asText();
 		String state = body.get("state").asText();
 		String zip = body.get("zip").asText();
-	
+
 		System.out.println("here");
 		Address address = new Address(street, city, state, zip);
 		Airport airport = new Airport(code, name, address);
-
+		return null;
+	}
 
 	@GetMapping
 	public List<Airport> allCountry(){
