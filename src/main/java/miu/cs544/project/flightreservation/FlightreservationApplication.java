@@ -32,7 +32,7 @@ public class FlightreservationApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(FlightreservationApplication.class, args);
-<<<<<<< HEAD
+
 		
 //		FlightController flightController  = context.getBean(FlightController.class);
 //		TicketController ticketController  = context.getBean(TicketController.class);
@@ -78,7 +78,7 @@ public class FlightreservationApplication {
 		
 		
 		
-=======
+
 
 //		FlightController flightController = context.getBean(FlightController.class);
 //		TicketController ticketController = context.getBean(TicketController.class);
@@ -124,7 +124,7 @@ public class FlightreservationApplication {
 //
 
 
->>>>>>> 41d6944deaabbbe9dc2eae59ef1cbd88a4acb447
+
 	}
 
 }
