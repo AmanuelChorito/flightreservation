@@ -1,26 +1,18 @@
 package miu.cs544.project.flightreservation.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import lombok.Data;
 import miu.cs544.project.flightreservation.model.Flight;
-import miu.cs544.project.flightreservation.repository.FlightRepository;
 
-@Service
-@Data
-public class FlightService {
 
-	@Autowired
-	private FlightRepository repository;
+
+public interface FlightService {
+
 	
-	public List<Flight> allFlights(){
-		return repository.findAll();
-	}
+	public List<Flight> allFlights();
 	
-	public Flight saveFlight(Flight flight) {
-		return repository.save(flight);
-	}
+	public Flight saveFlight(Flight flight);
+	
+	public Optional<Flight> getFlightById(int id);
 }

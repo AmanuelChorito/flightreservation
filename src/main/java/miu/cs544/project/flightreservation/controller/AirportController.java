@@ -37,7 +37,6 @@ public class AirportController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Optional<Airport> oneAirport(@PathVariable int id){
-		System.out.println("here in the oneAirport get");
 		return airportService.oneAirport(id);
 	}
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
