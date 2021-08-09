@@ -55,8 +55,6 @@ public class FlightController {
 		else
 			return  new ResponseEntity<>("Not valid flight to edit",HttpStatus.NOT_FOUND);
 
-
-
 	}
 
 
