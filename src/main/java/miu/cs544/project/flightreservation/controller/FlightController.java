@@ -55,15 +55,7 @@ public class FlightController {
 		else
 			return  new ResponseEntity<>("Not valid flight to edit",HttpStatus.NOT_FOUND);
 
-	private FlightService flightService;
 
-	@GetMapping
-	public List<Flight> allCountry(){
-		return flightService.allFlights();
-	}
-
-	public Flight saveFlight(Flight flight) {
-		return flightService.saveFlight(flight);
 
 	}
 
