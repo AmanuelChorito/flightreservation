@@ -8,6 +8,7 @@ import javax.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +39,6 @@ public class AirportController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Optional<Airport> oneAirport(@PathVariable int id){
-		System.out.println("here in the oneAirport get");
 		return airportService.oneAirport(id);
 	}
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -60,8 +60,8 @@ public class AirportController {
 		System.out.println("here");
 		Address address = new Address(street, city, state, zip);
 		Airport airport = new Airport(code, name, address);
-
-
+return null;
+	}
 	@GetMapping
 	public List<Airport> allCountry(){
 		return airportService.allAirports();
