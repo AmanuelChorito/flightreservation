@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.Data;
 import miu.cs544.project.flightreservation.model.Reservation;
-import miu.cs544.project.flightreservation.service.FlightService;
+import miu.cs544.project.flightreservation.service.FlightServices;
 import miu.cs544.project.flightreservation.service.ReservationService;
 
 @RestController
@@ -33,7 +33,7 @@ public class ReservationController {
 
 	
 	@Autowired
-	private FlightService flightService;
+	private FlightServices flightService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Reservation> allReservation(){
