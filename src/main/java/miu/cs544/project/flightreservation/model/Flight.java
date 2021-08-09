@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -16,8 +17,8 @@ public class Flight {
     private String flightNumber;
     private int capacity;
     private int availableSeat;
-    private LocalDate departureTime;
-    private LocalDate arrivalTime;
+    private LocalDateTime departureTime;
+    private LocalDateTime arrivalTime;
     private double price;
     @ManyToOne
     private Airline airline;
