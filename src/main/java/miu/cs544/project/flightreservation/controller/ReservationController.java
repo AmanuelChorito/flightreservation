@@ -21,12 +21,12 @@ public class ReservationController {
 
 	@Autowired
 	private ReservationService reservationService;
-	
+
 	@GetMapping
 	public List<Reservation> allReservations(){
 		return reservationService.allReservation();
 	}
-	
+
 	public Reservation saveReservation(Reservation reservation) {
 		return reservationService.saveReservation(reservation);
 	}

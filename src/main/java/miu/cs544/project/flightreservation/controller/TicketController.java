@@ -17,12 +17,12 @@ public class TicketController {
 
 	@Autowired
 	private TicketService ticketService;
-	
+
 	@RequestMapping("/tickets")
 	public List<Ticket> allTickets(){
 		return ticketService.allTickets();
 	}
-	
+
 	public Ticket saveTicket(Ticket ticket) {
 		return ticketService.saveTicket(ticket);
 	}

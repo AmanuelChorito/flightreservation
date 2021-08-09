@@ -1,15 +1,18 @@
 package miu.cs544.project.flightreservation.controller;
 
+import java.net.URI;
 import java.util.List;
 
+
+import miu.cs544.project.flightreservation.service.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.Data;
 import miu.cs544.project.flightreservation.model.Passenger;
-import miu.cs544.project.flightreservation.service.PassangerService;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @Data
@@ -17,14 +20,30 @@ import miu.cs544.project.flightreservation.service.PassangerService;
 public class PassangerController {
 
 	@Autowired
-	private PassangerService passangerService;
-	
+	private PassengerService passengerService;
+
 	@GetMapping
 	public List<Passenger> allPassangers(){
-		return passangerService.allPassangers();
+		return passengerService.allPassangers();
 	}
-	
-	public Passenger savePassanger(Passenger passanger) {
-		return passangerService.savePassanger(passanger);
+	@GetMapping("/{id}")
+	public Passenger findById(@PathVariable int id){
+		return passengerService.findById(id);
+	}
+
+	@PostMapping("/create")
+	public ResponseEntity<Passenger> savePassanger(@RequestBody Passenger passanger) {
+		URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/passangers/create").toUriString());
+		return ResponseEntity.created(uri).body(passengerService.savePassanger(passanger));
+	}
+
+	@PutMapping("/{id}")
+	ResponseEntity<?> updatePassenger(@RequestBody Passenger newPassenger, @PathVariable int id) {
+
+		Passenger p1 = passengerService.updatePassenger(newPassenger,id);
+		if (p1 == null)
+			return new ResponseEntity<>("Id not found", HttpStatus.BAD_REQUEST);
+		else return new ResponseEntity<>(p1, HttpStatus.OK);
+
 	}
 }

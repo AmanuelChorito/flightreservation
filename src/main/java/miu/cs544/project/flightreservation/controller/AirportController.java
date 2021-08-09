@@ -28,6 +28,7 @@ public class AirportController {
 
 	@Autowired
 	private AirportService airportService;
+
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Airport> allAirports(){
@@ -59,6 +60,15 @@ public class AirportController {
 		System.out.println("here");
 		Address address = new Address(street, city, state, zip);
 		Airport airport = new Airport(code, name, address);
+
+
+	@GetMapping
+	public List<Airport> allCountry(){
+		return airportService.allAirports();
+	}
+
+	public Airport saveAirport(Airport airport) {
+
 		return airportService.saveAirport(airport);
 	}
 	
