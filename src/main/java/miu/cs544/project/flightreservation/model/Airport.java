@@ -19,4 +19,14 @@ public class Airport {
     private String name;
     @Embedded
     private Address address;
+    
+	public Airport(String code, String name, Address address) {
+		this.code = code;
+		this.name = name;
+		this.address = address;
+	}
+	
+	
+    
+    
 }
