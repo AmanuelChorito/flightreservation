@@ -23,10 +23,10 @@ public class Ticket {
     @Column(name="ticketNumber", length = 20, nullable = false)
     private String ticketNumber; //List<String> TicketNumbers
     private int flightId;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Passenger passenger;
-    
-    private Flight flight;
+    //@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //private Passenger passenger;
+
+    //private Flight flight;
     
     private String ReservationCode;
 }
