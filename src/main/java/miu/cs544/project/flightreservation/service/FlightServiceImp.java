@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import miu.cs544.project.flightreservation.model.Airline;
+import miu.cs544.project.flightreservation.model.Airport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +19,42 @@ public class FlightServiceImp implements FlightServices {
 
     @Autowired
     private FlightRepository repository;
-
+    @Autowired
+    private AirlineService airlineService;
+@Autowired
+private AirportService airportService;
     public List<Flight> allFlights() {
         return repository.findAll();
     }
 
 
-    public Flight saveFlight(Flight flight) {
+    public Flight saveFlight(FlightDTO flightDTO) {
+        Flight flight= new Flight();
 
+        if(flightDTO!=null) {
+            Airline airline = (Airline) airlineService.findByAiportCode(flightDTO.getAirlineCode());
 
-        return repository.save(flight);
+            Optional<Airport> arrivalAirport = airportService.oneAirport(flightDTO.getArrivalAirport());
+
+            Optional<Airport> departureAirport = airportService.oneAirport(flightDTO.getDepartureAirport());
+
+            if (arrivalAirport != null && departureAirport != null && airline!=null) {
+
+                flight.setCapacity(flightDTO.getCapacity());
+                flight.setPrice(flightDTO.getPrice());
+                flight.setFlightNumber(flightDTO.getFlightNumber());
+                flight.setAvailableSeat(flightDTO.getAvailableSeat());
+                flight.setDepartureTime(flightDTO.getDepartureTime());
+                flight.setArrivalTime(flightDTO.getArrivalTime());
+                flight.setDepartureAirport(departureAirport.get());
+                flight.setArrivalAirport(arrivalAirport.get());
+                flight.setAirline(airline);
+                return repository.save(flight);
+            }
+            //todo need airport by code now it oworks by ID
+
+        }
+        return null;
     }
 
     @Override

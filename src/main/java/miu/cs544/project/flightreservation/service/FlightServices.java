@@ -11,7 +11,7 @@ public interface FlightServices {
 
     List<Flight> allFlights();
 
-    Flight saveFlight(Flight flight);
+    Flight saveFlight(FlightDTO flightDTO);
 
     List<Flight> searchFlightbyDepartureandDestination(LocalDateTime departureDate, String departureAirport, String destinationAirport);
         //TODO
