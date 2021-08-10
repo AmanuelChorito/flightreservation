@@ -26,9 +26,14 @@ public class PassangerController {
 	public List<Passenger> allPassangers(){
 		return passengerService.allPassangers();
 	}
+
 	@GetMapping("/{id}")
-	public Passenger findById(@PathVariable int id){
-		return passengerService.findById(id);
+	public ResponseEntity<?> findById(@PathVariable int id){
+		Passenger passenger= passengerService.findById(id).orElse(null);
+		if(passenger==null){
+			return new ResponseEntity<>("Passenger Id not found",HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(passenger, HttpStatus.OK);
 	}
 
 	@PostMapping("/create")
@@ -45,5 +50,9 @@ public class PassangerController {
 			return new ResponseEntity<>("Id not found", HttpStatus.BAD_REQUEST);
 		else return new ResponseEntity<>(p1, HttpStatus.OK);
 
+	}
+	@DeleteMapping("/{id}")
+	void deletePassenger(@PathVariable int id) {
+		passengerService.deletePassenger(id);
 	}
 }

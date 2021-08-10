@@ -10,5 +10,5 @@ public interface AirlineService {
     List<Airline> findByAiportCode(String airportcode);
     Airline findById(int id);
     Airline updateAirline(Airline newAirline,int id);
-
+    void deleteAirline(int id);
 }
