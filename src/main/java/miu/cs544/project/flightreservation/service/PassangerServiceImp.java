@@ -36,15 +36,20 @@ public class PassangerServiceImp implements PassengerService {
 
     public Passenger updatePassenger(Passenger passenger, int id) {
 
-        Optional<Passenger> updatedpassenger= findById(id);
-        Passenger passenger2=updatedpassenger.orElse(null);
-        if(passenger2!=null){
+        Optional<Passenger> updatedpassenger = findById(id);
+        Passenger passenger2 = updatedpassenger.orElse(null);
+        if (passenger2 != null) {
             passenger2.setFirstName(passenger.getFirstName());
             passenger2.setLastName(passenger.getLastName());
             passenger2.setDateOfBirth(passenger.getDateOfBirth());
             passenger2.setResidenceAddress(passenger.getResidenceAddress());
             return repository.save(passenger2);
         }
-        return  null;
+        return null;
+    }
+
+
+    public void deletePassenger(int id) {
+        repository.deleteById(id);
     }
 }

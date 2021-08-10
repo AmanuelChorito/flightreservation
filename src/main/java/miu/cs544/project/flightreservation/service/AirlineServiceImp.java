@@ -53,4 +53,9 @@ public class AirlineServiceImp implements AirlineService{
 	}
 
 
+	public void deleteAirline(int id) {
+		repository.deleteById(id);
+	}
+
+
 }

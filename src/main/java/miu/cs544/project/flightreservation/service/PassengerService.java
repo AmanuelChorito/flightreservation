@@ -14,5 +14,5 @@ public interface PassengerService {
 
     Passenger updatePassenger(Passenger passenger, int id);
 
-
+    void deletePassenger(int id);
 }

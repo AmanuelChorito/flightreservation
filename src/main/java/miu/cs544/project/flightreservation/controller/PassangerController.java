@@ -51,4 +51,8 @@ public class PassangerController {
 		else return new ResponseEntity<>(p1, HttpStatus.OK);
 
 	}
+	@DeleteMapping("/{id}")
+	void deletePassenger(@PathVariable int id) {
+		passengerService.deletePassenger(id);
+	}
 }
