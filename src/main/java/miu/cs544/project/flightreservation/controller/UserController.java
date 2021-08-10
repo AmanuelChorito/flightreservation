@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.Data;
 import miu.cs544.project.flightreservation.model.User;
 import miu.cs544.project.flightreservation.service.UserService;
+import miu.cs544.project.flightreservation.service.UserServiceImp;
 
 @RestController
 @Data
