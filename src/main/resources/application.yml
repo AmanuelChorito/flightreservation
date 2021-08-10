@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 8086
 spring:
   application:
     name: spring-boot-server
   datasource:
-    url: jdbc:mysql://localhost:3306/flightreservation
-    username: devuser
-    password: test
+    url: jdbc:mysql://localhost:3306/TestDB3
+    username: root
+    password: Aman@2021
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
@@ -14,7 +14,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
