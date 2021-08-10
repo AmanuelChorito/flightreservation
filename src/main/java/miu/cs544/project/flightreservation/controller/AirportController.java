@@ -62,10 +62,7 @@ public class AirportController {
 		Airport airport = new Airport(code, name, address);
 return null;
 	}
-	@GetMapping
-	public List<Airport> allCountry(){
-		return airportService.allAirports();
-	}
+	
 
 	public Airport saveAirport(Airport airport) {
 
