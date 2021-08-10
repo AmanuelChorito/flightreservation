@@ -32,6 +32,7 @@ public class FlightServiceImp implements FlightServices {
     @Override
     public List<Flight> searchFlightbyDepartureandDestination(LocalDateTime departureDate, String departureAirport, String destinationAirport) {
         return repository.searchFlightbyDepartureandDestination(departureDate, departureAirport, destinationAirport);
+       // return null;
     }
 
     @Override

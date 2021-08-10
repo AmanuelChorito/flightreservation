@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 @Transactional
 public interface FlightRepository extends JpaRepository<Flight, Integer> {
-  @Query("select f from Flight  f where f.departureAirport.name=:destinationAirport and f.arrivalAirport.name=:arrivalAirport and f.departureTime=:departureDate")
+ @Query("select f from Flight  f where f.departureAirport.name=:departureAirport and f.arrivalAirport.name=:arrivalAirport and f.departureTime=:departureDate")
   List<Flight> searchFlightbyDepartureandDestination(LocalDateTime departureDate, String arrivalAirport, String departureAirport);
 
   // find by flight number

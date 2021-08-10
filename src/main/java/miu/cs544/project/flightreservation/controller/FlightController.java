@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import lombok.Data;
 import miu.cs544.project.flightreservation.model.Flight;
 import miu.cs544.project.flightreservation.service.FlightServiceImp;
+import miu.cs544.project.flightreservation.service.FlightServices;
 
 @RestController
 @Data
@@ -22,8 +23,7 @@ import miu.cs544.project.flightreservation.service.FlightServiceImp;
 public class FlightController {
 
 	@Autowired
-
-	private FlightServiceImp flightServiceImp;
+	private FlightServices flightServiceImp;
 	
 
 	@PostMapping()
@@ -54,6 +54,7 @@ public class FlightController {
 		}
 		else
 			return  new ResponseEntity<>("Not valid flight to edit",HttpStatus.NOT_FOUND);
+
 
 	}
 
