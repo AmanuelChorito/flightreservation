@@ -9,18 +9,14 @@ import lombok.Data;
 import miu.cs544.project.flightreservation.model.User;
 import miu.cs544.project.flightreservation.repository.UserRepository;
 
-@Service
-@Data
-public class UserService {
 
-	@Autowired
-	private UserRepository repository;
+public interface UserService {
+
 	
-	public List<User> allUsers(){
-		return repository.findAll();
-	}
 	
-	public User saveUser(User user) {
-		return repository.save(user);
-	}
+	public List<User> allUsers();
+	
+	public User saveUser(User user);
+	
+	public User getUserById(int id);
 }

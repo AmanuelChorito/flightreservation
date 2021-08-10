@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import lombok.Data;
+import miu.cs544.project.flightreservation.dto.AirportAdapter;
+import miu.cs544.project.flightreservation.dto.AirportDTO;
 import miu.cs544.project.flightreservation.model.Address;
 import miu.cs544.project.flightreservation.model.Airport;
 import miu.cs544.project.flightreservation.service.AirportService;
@@ -30,6 +32,8 @@ public class AirportController {
 	@Autowired
 	private AirportService airportService;
 
+	@Autowired
+	private AirportAdapter airportAdapter;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Airport> allAirports(){
@@ -49,37 +53,14 @@ public class AirportController {
 	
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public Airport saveAirport(@RequestBody ObjectNode body) {
-		String name = body.get("name").asText();
-		String code = body.get("code").asText();
-		String street = body.get("street").asText();
-		String city = body.get("city").asText();
-		String state = body.get("state").asText();
-		String zip = body.get("zip").asText();
-	
-		System.out.println("here");
-		Address address = new Address(street, city, state, zip);
-		Airport airport = new Airport(code, name, address);
-return null;
-	}
-	
-
-	public Airport saveAirport(Airport airport) {
-
+	public Airport saveAirport(@RequestBody AirportDTO airportDTO) {
+		System.out.println("==>"+ airportDTO);
+		Airport airport = airportAdapter.DTOtoAirport(airportDTO);
 		return airportService.saveAirport(airport);
 	}
 	
 	@RequestMapping(value = "/airports/{id}", method = RequestMethod.PUT)
-	public Airport updateAirport(@PathVariable int id,@RequestBody ObjectNode body) {
-		String name = body.get("name").asText();
-		String code = body.get("code").asText();
-		String street = body.get("street").asText();
-		String city = body.get("city").asText();
-		String state = body.get("state").asText();
-		String zip = body.get("zip").asText();
-		
-		Address address = new Address(street, city, state, zip);
-		Airport Uairport = new Airport(code, name, address);
-		return airportService.updateAirport(id, Uairport);
+	public Airport updateAirport(@PathVariable int id,Airport udpdatedAirport) {
+		return airportService.updateAirport(id, udpdatedAirport);
 	}
 }
