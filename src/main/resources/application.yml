@@ -4,9 +4,9 @@ spring:
   application:
     name: spring-boot-server
   datasource:
-    url: jdbc:mysql://localhost:3306/TestDB3
+    url: jdbc:mysql://localhost:3306/flightreservation
     username: root
-    password: Aman@2021
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
@@ -14,7 +14,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         format_sql: true
