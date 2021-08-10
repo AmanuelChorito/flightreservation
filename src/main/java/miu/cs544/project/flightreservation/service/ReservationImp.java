@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -99,7 +100,9 @@ public class ReservationImp implements ReservationService {
 				ticketService.saveTicket(ticket);
 				totalPayment+=f.getPrice();
 			}
+			System.out.println("totl price is"+totalPayment);
 			reservation.setTotalPrice(totalPayment);
+			saveReservation(reservation);
 			return tickets;
 		}
 		return null;

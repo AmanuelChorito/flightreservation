@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @NoArgsConstructor
-public class Flight {
+public class Flight implements Comparable<Flight>{
     //adding maximum reservation for every instance flight
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,6 +50,14 @@ public class Flight {
 		this.airline = airline;
 		this.arrivalAirport = arrivalAirport;
 		this.departureAirport = departureAirport;
+	}
+
+	@Override
+	public int compareTo(Flight o) {
+		if (getDepartureTime() == null || o.getDepartureTime() == null) {
+		      return 0;
+		    }
+		return getDepartureTime().compareTo(o.getDepartureTime());
 	}
 
     
