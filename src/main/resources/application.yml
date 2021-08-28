@@ -4,9 +4,9 @@ spring:
   application:
     name: spring-boot-server
   datasource:
-    url: jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_4fda505d6c16e6e
-    username: bde1df3a09b9c1
-    password: 601523a9
+    url: jdbc:mysql://mysqlcontainer:3306/flightreservation
+    username: root
+    password: Aman@2021
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true

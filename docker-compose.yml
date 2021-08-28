@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mysqlcontainer:
+    image: mysql:latest
+    environment:
+    - MYSQL_ROOT_PASSWORD=Aman@2021
+    - MYSQL_DATABASE=flightreservation
+    - MYSQL_PASSWORD=Aman@2021
+    volumes:
+    - /data/mysql
+  spring-boot-jpa-app:
+    image: flightreservation-springboot-api
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+    - mysqlcontainer
+    ports:
+    - 8086:8086
+    restart: on-failure
+    volumes:
+    - /data/spring-boot-app
